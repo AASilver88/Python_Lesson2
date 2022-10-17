@@ -8,7 +8,7 @@ def InputNumbers(inputText):
             number = int(input(f"{inputText}"))
             is_OK = True
         except ValueError:
-            print("Число должно быть integer ")
+            print("Ошибка. Введите целое число.")
     return number
 
 
