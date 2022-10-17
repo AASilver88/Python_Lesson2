@@ -1,0 +1,50 @@
+"""Напишите программу, которая принимает на вход два числа. Задайте список из N элементов, заполненных числами из 
+
+промежутка [-N, N]. Найдите произведение элементов на указанных позициях (не индексах)"""
+"""Position one: 1"""
+"""Position two: 3"""
+""" ->[-5, -4, -3 ,-2 ,-1, 0, 1, 2, 3, 4, 5]"""
+"""->  15"""
+
+
+def InputNumbers(inputText):
+    is_OK = False
+    while not is_OK:
+        try:
+            number = int(input(f"{inputText}"))
+            is_OK = True
+        except ValueError:
+            print("Ошибка. Нужно ввести целое число")
+    return number
+
+def InputPosition(inputText):
+    is_OK = False
+    while not is_OK:
+        try:
+            number = int(input(f"{inputText}"))
+            is_OK = True
+            if 1 > number or number > list_len :
+                    is_OK = False
+                    print(f"Номер позиции должен быть от 1 до {list_len} ")
+        except ValueError:
+            print("Ошибка. Нужно ввести целое число")
+    return number
+
+
+num = InputNumbers("Введите целое число N: ")
+
+list = []
+for e in range((-1)*num, num+1):
+    list.append(e)
+
+list_len= len(list)
+
+pos1 = InputPosition("Введите номер первой позиции: ")
+pos2 = InputPosition("Введите номер второй позиции: ")
+
+list_prod = list[pos1-1]*list[pos2-1]
+
+
+print(f"Список [-N,N]: {list}")
+
+print(f"Произведение элементов на позиции {pos1} и {pos2}:  {list_prod}")
