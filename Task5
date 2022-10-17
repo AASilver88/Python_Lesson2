@@ -1,0 +1,25 @@
+"""Реалезуйте алгоритм перемешивания списка. Без функции shufle из модуля random"""
+
+
+import random
+
+def InputNumbers(inputText):
+    is_OK = False
+    while not is_OK:
+        try:
+            number = int(input(f"{inputText}"))
+            is_OK = True
+        except ValueError:
+            print("Ошибка. Введите целое число.")
+    return number
+
+arr_start = InputNumbers("Введите начало массива: ")
+arr_end = InputNumbers("Введите конец массива: ")
+
+arr = list(range(arr_start, arr_end+1))
+
+b = sorted(arr, key=lambda a: random.random())
+print("Массив")
+print(arr)
+print("Перемешанный массив")
+print(b)
